@@ -78,4 +78,5 @@ int main() {
     printf("\nThe height of the tree is %d", height(root)); 
     printf("\nThe total number of leaf nodes is %d", leaf_nodes(root)); 
     printf("\nThe total number of non-leaf nodes is %d", nonleaf_nodes(root)); 
+    printf("\n");
 }

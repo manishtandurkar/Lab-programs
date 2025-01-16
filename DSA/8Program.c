@@ -110,4 +110,5 @@ int main() {
     inorder(root);
     printf("\nThe postorder traversal is: ");
     postorder(root);
+    printf("\n");
 }

@@ -68,7 +68,7 @@ void infixtopostfix(STACK *s, char infix[SIZE]) {
     while(s->top != -1)
         postfix[j++] = pop(s);
     postfix[j] = '\0';
-    printf("The postfix expression is %s", postfix);
+    printf("The postfix expression is %s\n", postfix);
 }
 
 int main() {
