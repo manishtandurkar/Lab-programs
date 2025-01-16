@@ -1,0 +1,15 @@
+Static library:
+    cc -c ctest1.c ctest2.c
+    ar -cvq libtest.a ctest1.o ctest2.o
+    cc prg.c libtest.a
+    ./a.out
+
+Shared library:
+    cc -c ctest1.c ctest2.c -fPIC
+    cc -shared -o libctest.so ctest1.o ctest2.o
+    export  LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH
+    cc -L . prg.c -l ctest -o dynamic
+    ./dynamic
+
+size a.out
+size dynamic
