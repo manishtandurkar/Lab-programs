@@ -7,7 +7,7 @@ Static library:
 Shared library:
     cc -c ctest1.c ctest2.c -fPIC
     cc -shared -o libctest.so ctest1.o ctest2.o
-    export  LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH
+    export LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH
     cc -L . prg.c -l ctest -o dynamic
     ./dynamic
 

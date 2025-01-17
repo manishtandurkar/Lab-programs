@@ -22,10 +22,10 @@ int main(int argc, char *argv[]) {
     fvar.l_len = 100;
     printf("Press enter to set lock");
     getchar();
-    printf("trying to get lock....\n");
+    printf("Trying to get lock....\n");
     if((fcntl(fd, F_SETLK, &fvar)) == -1) {
         fcntl(fd, F_GETLK, &fvar);
-        printf("\nFile already locked by process (pid): %d\n",fvar.l_pid);        
+        printf("\nFile already locked by process(pid): %d\n",fvar.l_pid);        
         return -1;
     }
     printf("locked\n");

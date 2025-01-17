@@ -45,9 +45,9 @@ void put_fork(int phnum) {
     sem_post(&mutex);
 }
 
-void* philosopher(void* num) {
+void *philosopher(void *num) {
     while(1) {
-        int* i = num;
+        int *i = num;
         sleep(1);
         take_fork(*i);
         sleep(0);
