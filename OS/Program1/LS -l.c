@@ -7,13 +7,13 @@
 
 int main() {
     DIR *d;
-    struct dirent *de;
     struct stat buf;
-    int i, j;
-    char P[10] = "rwxrwxrwx", AP[10] = " ";
+    struct dirent *de;
     struct passwd *p;
     struct group *g;
     struct tm *t;
+    int i, j;
+    char P[10] = "rwxrwxrwx", AP[10] = " ";
     char time[26];
     d = opendir(".");
     readdir(d);
@@ -39,7 +39,7 @@ int main() {
         printf("%s", AP);
         printf("%2ld", buf.st_nlink);
         p = getpwuid(buf.st_uid);
-        printf(" %.15s", p->pw_name);
+        printf(" %-15s", p->pw_name);
         g = getgrgid(buf.st_gid);
         printf(" %-10s", g->gr_name);
         printf(" %5ld", buf.st_size);

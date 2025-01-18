@@ -2,7 +2,6 @@
 #include<stdlib.h>
 #include<unistd.h>
 #include<fcntl.h>
-#include<errno.h>
 
 int main(int argc, char *argv[]) {
     int fd;
@@ -25,10 +24,10 @@ int main(int argc, char *argv[]) {
     printf("Trying to get lock....\n");
     if((fcntl(fd, F_SETLK, &fvar)) == -1) {
         fcntl(fd, F_GETLK, &fvar);
-        printf("\nFile already locked by process(pid): %d\n",fvar.l_pid);        
+        printf("\nFile already locked by process(pid): %d\n",fvar.l_pid);
         return -1;
     }
-    printf("locked\n");
+    printf("Locked\n");
     if((lseek(fd, SEEK_END - 50, SEEK_END)) == -1) {
         perror("lseek");
         exit(1);
@@ -37,9 +36,9 @@ int main(int argc, char *argv[]) {
         perror("read");
         exit(1);
     }
-    printf("data read from file..\n");
+    printf("Data read from file..\n");
     puts(buffer);
-    printf("press enter to release lock\n");
+    printf("Press enter to release lock\n");
     getchar();
     fvar.l_type = F_UNLCK;
     fvar.l_whence = SEEK_SET;

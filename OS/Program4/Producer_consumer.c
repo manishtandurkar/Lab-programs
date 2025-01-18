@@ -8,14 +8,13 @@
 pthread_mutex_t mutex;
 pthread_t tidP[20], tidC[20];
 sem_t full, empty;
-int counter;
+int counter = 0;
 int buffer[buffersize];
 
 void initialize() {
     pthread_mutex_init(&mutex, NULL);
     sem_init(&full, 1, 0);
     sem_init(&empty, 1, buffersize);
-    counter = 0;
 }
 
 void write(int item) {
@@ -29,7 +28,6 @@ int read() {
 void *producer(void *param) {
     int item;
     item = rand() % 5;
-    //waittime = rand() % 5;
     sem_wait(&empty);
     pthread_mutex_lock(&mutex);
     printf("Producer has produced item: %d\n", item);
@@ -40,7 +38,6 @@ void *producer(void *param) {
 
 void *consumer(void *param) {
     int item;
-    //waittime = rand() % 5;
     sem_wait(&full);
     pthread_mutex_lock(&mutex);
     item = read();
