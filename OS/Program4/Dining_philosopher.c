@@ -12,8 +12,7 @@
 
 int state[N];
 int phil[N] = {0, 1, 2, 3, 4};
-sem_t mutex;
-sem_t S[N];
+sem_t mutex, S[N];
 
 void test(int phnum) {
     if(state[phnum] == HUNGRY && state[LEFT] != EATING && state[RIGHT] != EATING) {

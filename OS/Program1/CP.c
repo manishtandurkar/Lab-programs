@@ -1,7 +1,6 @@
 #include<stdio.h>
 #include<fcntl.h>
 #include<unistd.h>
-#include<errno.h>
 
 #define BUF_SIZE 8192
 

@@ -1,6 +1,5 @@
 #include<stdio.h>
 #include<unistd.h>
-#include<errno.h>
 
 int main(int argc, char *argv[]) {
     int input_fd, output_fd;
