@@ -35,7 +35,7 @@ int main() {
     scanf("%d", &key);
     int result = binarySearch(arr, 0, n-1, key);
     if(result != -1)
-        printf("Element is present at index %d\n", result);
+        printf("Element is present\n");
     else
         printf("Element is not present in array\n");
 }

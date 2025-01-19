@@ -10,8 +10,7 @@
 #define LEFT (phnum + 4) % N
 #define RIGHT (phnum + 1) % N
 
-int state[N];
-int phil[N] = {0, 1, 2, 3, 4};
+int state[N], phil[N] = {0, 1, 2, 3, 4};
 sem_t mutex, S[N];
 
 void test(int phnum) {
