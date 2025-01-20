@@ -30,7 +30,6 @@ void take_fork(int phnum) {
     test(phnum);
     sem_post(&mutex);
     sem_wait(&S[phnum]);
-    sleep(1);
 }
 
 void put_fork(int phnum) {
@@ -48,7 +47,7 @@ void *philosopher(void *num) {
         int *i = num;
         sleep(1);
         take_fork(*i);
-        sleep(0);
+        sleep(1);
         put_fork(*i);
     }
 }
