@@ -13,8 +13,7 @@ int main() {
     struct group *g;
     struct tm *t;
     int i, j;
-    char P[] = "rwxrwxrwx", AP[10] = " ";
-    char time[26];
+    char P[] = "rwxrwxrwx", AP[10] = " ", time[26];
     d = opendir(".");
     readdir(d);
     readdir(d);

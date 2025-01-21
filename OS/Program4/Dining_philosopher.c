@@ -17,7 +17,7 @@ void test(int phnum) {
     if(state[phnum] == HUNGRY && state[LEFT] != EATING && state[RIGHT] != EATING) {
         state[phnum] = EATING;
         sleep(2);
-        printf("Philosopher %d takes fork %d and %d\n", phnum + 1, LEFT + 1, phnum + 1);
+        printf("Philosopher %d takes fork %d and %d\n", phnum + 1, LEFT + 1, RIGHT + 1);
         printf("Philosopher %d is eating\n", phnum + 1);
         sem_post(&S[phnum]);
     }
@@ -35,7 +35,7 @@ void take_fork(int phnum) {
 void put_fork(int phnum) {
     sem_wait(&mutex);
     state[phnum] = THINKING;
-    printf("Philosopher %d putting fork %d and %d down\n", phnum + 1, LEFT + 1, phnum + 1);
+    printf("Philosopher %d putting fork %d and %d down\n", phnum + 1, LEFT + 1, RIGHT + 1);
     printf("Philosopher %d is thinking\n", phnum + 1);
     test(LEFT);
     test(RIGHT);
