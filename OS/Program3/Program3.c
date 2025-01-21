@@ -7,10 +7,10 @@ int a[4][4], b[4][4];
 void *matrixeval(void *val) {
     int *thno = (int *)val;
     for(int i=0; i<4; i++)
-        b[(*thno)][i] = a[(*thno)][i];
+        b[*thno][i] = a[*thno][i];
     for(int i=0; i<4; i++)
         for(int j=0; j<(*thno); j++)
-            b[(*thno)][i] *= a[(*thno)][i];
+            b[*thno][i] *= a[*thno][i];
 }
 
 int main() {
