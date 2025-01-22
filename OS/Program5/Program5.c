@@ -38,7 +38,7 @@ int main(int argc, char *argv[]) {
     }
     printf("Data read from file..\n");
     puts(buffer);
-    printf("Press enter to release lock\n");
+    printf("Press enter to release lock");
     getchar();
     fvar.l_type = F_UNLCK;
     fvar.l_whence = SEEK_SET;

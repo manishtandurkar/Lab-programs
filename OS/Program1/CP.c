@@ -4,7 +4,7 @@
 
 #define BUF_SIZE 8192
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     int input_fd, output_fd;
     ssize_t ret_in, ret_out;
     char buffer[BUF_SIZE];
