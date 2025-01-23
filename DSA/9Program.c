@@ -17,12 +17,10 @@ NODE create_node(int item) {
 
 NODE insertleft(NODE root, int item) {
     root->left = create_node(item);
-    return root->left;
 }
 
 NODE insertright(NODE root, int item) {
     root->right = create_node(item);
-    return root->right;
 }
 
 void display(NODE root) {

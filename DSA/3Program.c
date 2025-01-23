@@ -56,11 +56,10 @@ int main() {
         printf("\n1. Send\n2. Receive\n3. Display\n4. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &ch);
-        getchar();
         switch(ch) {
             case 1:
                 printf("\nRead message to send: ");
-                gets(item);
+                scanf("%s", item);
                 send(&q, item);
                 break;
             case 2:
