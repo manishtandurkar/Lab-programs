@@ -2,15 +2,15 @@
 #include<stdlib.h>
 
 void heapify(int a[], int n) {
-    int i, k, v, j, flag;
-    for(i = n/2 - 1; i >= 0; i--) {
+    int i, k, v, j, flag = 0;
+    for(i = n/2; i >= 1; i--) {
         k = i;
         v = a[k];
-        flag = 0;
-        while(!flag && 2*k + 1 < n) {
-            j = 2*k + 1;
-            if(j+1 < n && a[j] < a[j+1])
-                j++;
+        while(!flag && 2*k <= n) {
+            j = 2*k;
+            if(j < n)
+                if(a[j] < a[j+1])
+                    j++;
             if(v >= a[j])
                 flag = 1;
             else {
@@ -19,6 +19,7 @@ void heapify(int a[], int n) {
             }
         }
         a[k] = v;
+        flag = 0;
     }
 }
 
@@ -35,23 +36,23 @@ int main() {
                 printf("\nRead no of elements: ");
                 scanf("%d", &n);
                 printf("\nRead Elements\n");
-                for(i = 0; i < n; i++)
-                    scanf("%d", &a[i]);
+                for(i = 1; i <= n; i++)
+                    scanf("%d",&a[i]);
                 heapify(a, n);
                 printf("\nElements after heap\n");
-                for(i = 0; i < n; i++)
-                    printf("%d ", a[i]);
+                for(i = 1; i <= n; i++)
+                    printf("%d\t", a[i]);
                 break;
             case 2:
-                if(n >= 1) {
-                    printf("\nElement deleted is %d\n", a[0]);
-                    a[0] = a[n - 1];
+                if(n>=1) {
+                    printf("\nElement deleted is %d\n", a[1]);
+                    a[1] = a[n];
                     n--;
                     heapify(a, n);
                     if(n != 0) {
                         printf("\nElements after reconstructing heap\n");
-                        for(i = 0; i < n; i++)
-                            printf("%d ", a[i]);
+                        for(i = 1; i <= n; i++)
+                            printf("%d\t", a[i]);
                     }
                 }
                 else

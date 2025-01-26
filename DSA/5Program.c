@@ -3,7 +3,7 @@
 
 #define SIZE 5
 
-int count;
+int count = 0;
 
 struct node {
     int data;
@@ -44,6 +44,7 @@ NODE deletebegin(NODE last) {
     last->next = temp->next;
     printf("\nElement deleted is %d\n", temp->data);
     free(temp);
+    count--;
     return last;
 }
 
@@ -82,8 +83,10 @@ int main() {
             case 3:
                 display(last);
                 break;
-            default: 
+            case 4:
                 exit(0);
+            default: 
+                printf("\nInvalid choice\n");
         }
     }
 }

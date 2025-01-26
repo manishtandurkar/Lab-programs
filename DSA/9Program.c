@@ -55,14 +55,11 @@ int leaf_nodes(NODE root) {
 }
 
 int nonleaf_nodes(NODE root) {
-    if(root == NULL || (root->left == NULL && root->right == NULL))
-        return 0;
-    return nonleaf_nodes(root->left) + nonleaf_nodes(root->right) + 1;
+    return count_nodes(root) - leaf_nodes(root);
 }
 
 int main() {
-    NODE root = NULL;
-    root = create_node(45);
+    NODE root = create_node(45);
     insertleft(root, 39);
     insertright(root, 78);
     insertleft(root->right, 54);

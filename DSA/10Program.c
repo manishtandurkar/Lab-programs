@@ -16,8 +16,7 @@ NODE create_node(int item) {
 }
 
 NODE Insertbst(NODE root, int item) {
-    NODE temp;
-    temp = create_node(item);
+    NODE temp = create_node(item);
     if(root == NULL)
         return temp;
     if(item < root->data)
@@ -122,8 +121,10 @@ int main() {
                 scanf("%d", &key);
                 root = deletenode(root, key);
                 break;
-            default:
+            case 6:
                 exit(0);
+            default:
+                printf("\nInvalid choice");
         }
     }
 }

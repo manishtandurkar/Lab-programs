@@ -22,39 +22,25 @@ NODE insertend(NODE start, int co, int po) {
     return start;
 }
 
-void display(NODE start) {
-    NODE temp;
-    if(start == NULL)
-        printf("Polynomial empty\n");
-    else {
-        temp = start;
-        while(temp->addr != NULL){
-            printf("%dx^%d + ", temp->co, temp->po);
-            temp = temp->addr;
-        }
-        printf("%dx^%d\n", temp->co, temp->po);
-    }
-}
-
-NODE addterm(NODE res, int co, int po) {
+NODE addterm(NODE start, int co, int po) {
     NODE temp, curr;
     temp = (NODE)malloc(sizeof(struct node));
     temp->co = co;
     temp->po = po;
     temp->addr = NULL;
-    if(res == NULL)
+    if(start == NULL)
         return temp;
-    curr = res;
+    curr = start;
     while(curr != NULL) {
         if(curr->po == po) {
-            curr->co = curr->co + co;
-            return res;
+            curr->co += co;
+            return start;
         }
         curr = curr->addr;
     }
     if(curr == NULL)
-        res = insertend(res, co, po);
-    return res;
+        start = insertend(start, co, po);
+    return start;
 }
 
 NODE multiply(NODE poly1, NODE poly2) {
@@ -63,6 +49,20 @@ NODE multiply(NODE poly1, NODE poly2) {
         for(p2 = poly2; p2 != NULL; p2 = p2->addr)
             res = addterm(res, p1->co*p2->co, p1->po+p2->po);
     return res;
+}
+
+void display(NODE start) {
+    NODE temp;
+    if(start == NULL)
+        printf("Polynomial empty\n");
+    else {
+        temp = start;
+        while(temp->addr != NULL) {
+            printf("%dx^%d + ", temp->co, temp->po);
+            temp = temp->addr;
+        }
+        printf("%dx^%d\n", temp->co, temp->po);
+    }
 }
 
 int main() {

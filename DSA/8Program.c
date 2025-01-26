@@ -64,7 +64,7 @@ void postorder(NODE root) {
     }
 }
 
-NODE create_expr_tree(NODE root, char infix[10]) {
+NODE create_expr_tree(char infix[]) {
     STACK TS, OS;
     TS.top = OS.top = -1;
     int i;
@@ -100,10 +100,10 @@ NODE create_expr_tree(NODE root, char infix[10]) {
 
 int main() {
     char infix[10];
-    NODE root = NULL;
-    printf("Read the infix expression :");
+    NODE root;
+    printf("Read the infix expression: ");
     scanf("%s", infix);
-    root = create_expr_tree(root, infix);
+    root = create_expr_tree(infix);
     printf("\nThe preorder traversal is: ");
     preorder(root);
     printf("\nThe inorder traversal is: ");

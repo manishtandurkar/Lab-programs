@@ -28,7 +28,7 @@ float operate(float op1, float op2, char symbol) {
     }
 }
 
-float eval(STACK *s, char prefix[SIZE]) {
+float eval(STACK *s, char prefix[]) {
     int i;
     char symbol;
     float res, op1, op2;

@@ -27,7 +27,7 @@ int preced(char symbol) {
     }
 }
 
-void infixtopostfix(STACK *s, char infix[SIZE]) {
+void infixtopostfix(STACK *s, char infix[]) {
     int i, j = 0;
     char postfix[SIZE], temp, symbol;
     for(i = 0; infix[i] != '\0'; i++) {

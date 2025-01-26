@@ -9,7 +9,7 @@ typedef struct queue {
     char data[SIZE][20];
 } QUEUE;
 
-void send(QUEUE *q, char item[20]) {
+void send(QUEUE *q, char item[]) {
     if(q->front == (q->rear + 1)%SIZE) {
         printf("Queue full\n");
         return;
@@ -66,13 +66,16 @@ int main() {
                 del = receive(&q);
                 if(del != NULL)
                     printf("\nElement deleted is %s\n", del);
+                else
+                    printf("\nQueue empty\n");
                 break;
             case 3:
                 display(&q);
                 break;
-            default:
-                printf("Exiting....\n");
+            case 4:
                 exit(0);
+            default:                
+                printf("\nInvalid choice\n");
         }
     }
 }

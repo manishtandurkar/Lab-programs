@@ -22,8 +22,14 @@ int hash2(int key) {
 void insert(int key) {
     int index = hash1(key);
     int stepSize = hash2(key);
-    while(hashTable[index] != EMPTY) 
+    int initialIndex = index;
+    while(hashTable[index] != EMPTY) {
         index = (index + stepSize) % TABLE_SIZE;
+        if(index == initialIndex) {
+            printf("Hash table is full, cannot insert key %d\n", key);
+            return;
+        }
+    }
     hashTable[index] = key;
 }
 
