@@ -35,7 +35,7 @@ float eval(STACK *s, char prefix[]) {
     for(i = strlen(prefix)-1; i>=0; i--) {
         symbol = prefix[i];
         if(isdigit(symbol))
-           push(s, symbol-'0');
+           push(s, symbol - '0');
         else {
             op1 = pop(s);
             op2 = pop(s);

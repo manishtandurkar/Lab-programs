@@ -35,6 +35,7 @@ NODE deletebegin(NODE last) {
         printf("\nQueue empty");
         return NULL;
     }
+    count--;
     if(last->next == last) {
         printf("\nElement deleted is %d\n", last->data);
         free(last);
@@ -44,7 +45,6 @@ NODE deletebegin(NODE last) {
     last->next = temp->next;
     printf("\nElement deleted is %d\n", temp->data);
     free(temp);
-    count--;
     return last;
 }
 
